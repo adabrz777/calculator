@@ -1,0 +1,349 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: #353535;
+    /*font-family: 'Wallpoet', cursive;*/
+    font-family: 'Inconsolata', monospace;
+
+    #calculator {
+        * {
+            transition: .1s linear;
+
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            /* Safari 3.1+ */
+            -moz-user-select: none;
+            /* Firefox 2+ */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+            /* Standard syntax */
+        }
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 435px;
+        height: 700px;
+        background: #3498BD;
+        border-bottom: solid 10px #2980B9;
+        border-right: solid 10px #2980B9;
+
+        #result {
+            width: 405px;
+            border-right: solid 10px #cccccc;
+            border-bottom: solid 10px #cccccc;
+            height: 140px;
+            background: #acacac;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 70px;
+            font-size: 50px;
+            text-align: right;
+
+            #old {
+                width: 90%;
+                height: 70px;
+                box-sizing: border-box;
+                padding-right: 10px;
+                line-height: 30px;
+                text-align: left;
+                font-size: 25px;
+                padding-left: 3px;
+            }
+
+            #char {
+                width: 60px;
+                height: 60px;
+                box-sizing: border-box;
+                line-height: 60px;
+                font-size: 65px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                text-align: center;
+            }
+
+            #current {
+                width: 100%;
+                height: 70px;
+                box-sizing: border-box;
+                padding-right: 10px;
+            }
+        }
+
+        .btn {
+            width: 90px;
+            height: 90px;
+            background: #2ecc71;
+
+            border-right: solid 10px #27ae60;
+            border-bottom: solid 10px #27ae60;
+            line-height: 80px;
+            text-align: center;
+            font-size: 60px;
+            cursor: pointer;
+            position: absolute;
+
+            &:active {
+                border-width: 5px;
+                width: 90px;
+                height: 90px;
+                position: relative;
+                top: 5px;
+                left: 5px;
+            }
+        }
+
+        #btn_7 {
+            top: 170px;
+            left: 10px;
+
+            &:active {
+                top: 175px;
+                left: 15px;
+            }
+        }
+
+        #btn_8 {
+            top: 170px;
+            left: 115px;
+
+            &:active {
+                top: 175px;
+                left: 120px;
+            }
+        }
+
+        #btn_9 {
+            top: 170px;
+            left: 220px;
+
+            &:active {
+                top: 175px;
+                left: 225px;
+            }
+        }
+
+        #btn_divide {
+            top: 170px;
+            left: 325px;
+            border-right: solid 10px #c0392B;
+            border-bottom: solid 10px #c0392B;
+            background: #e74c3c;
+
+            &:active {
+                top: 175px;
+                left: 330px;
+                border-width: 5px;
+            }
+        }
+
+        #btn_4 {
+            top: 275px;
+            left: 10px;
+
+            &:active {
+                top: 280px;
+                left: 15px;
+            }
+        }
+
+        #btn_5 {
+            top: 275px;
+            left: 115px;
+
+            &:active {
+                top: 280px;
+                left: 120px;
+            }
+        }
+
+        #btn_6 {
+            top: 275px;
+            left: 220px;
+
+            &:active {
+                top: 280px;
+                left: 225px;
+            }
+        }
+
+        #btn_multiply {
+            top: 275px;
+            left: 325px;
+            border-right: solid 10px #c0392B;
+            border-bottom: solid 10px #c0392B;
+            background: #e74c3c;
+
+            &:active {
+                top: 280px;
+                left: 330px;
+                border-width: 5px;
+            }
+        }
+
+        #btn_1 {
+            top: 380px;
+            left: 10px;
+
+            &:active {
+                top: 385px;
+                left: 15px;
+            }
+        }
+
+        #btn_2 {
+            top: 380px;
+            left: 115px;
+
+            &:active {
+                top: 385px;
+                left: 120px;
+            }
+        }
+
+        #btn_3 {
+            top: 380px;
+            left: 220px;
+
+            &:active {
+                top: 385px;
+                left: 225px;
+            }
+        }
+
+        #btn_minus {
+            top: 380px;
+            left: 325px;
+            border-right: solid 10px #c0392B;
+            border-bottom: solid 10px #c0392B;
+            background: #e74c3c;
+
+            &:active {
+                top: 385px;
+                left: 330px;
+                border-width: 5px;
+            }
+        }
+
+        #btn_0 {
+            top: 485px;
+            left: 10px;
+
+            &:active {
+                top: 490px;
+                left: 15px;
+            }
+        }
+
+        #btn_point {
+            top: 485px;
+            left: 115px;
+
+            &:active {
+                top: 490px;
+                left: 120px;
+            }
+        }
+
+        #btn_c {
+            top: 485px;
+            left: 220px;
+            border-right: solid 10px #f39c12;
+            border-bottom: solid 10px #f39c12;
+            background: #f1c40f;
+
+            &:active {
+                top: 490px;
+                left: 225px;
+                border-width: 5px;
+            }
+        }
+
+        #btn_plus {
+            top: 485px;
+            left: 325px;
+
+            border-right: solid 10px #c0392B;
+            border-bottom: solid 10px #c0392B;
+            background: #e74c3c;
+
+            &:active {
+                top: 490px;
+                left: 330px;
+                border-width: 5px;
+            }
+        }
+
+        #btn_calculate {
+            width: 195px;
+            height: 90px;
+            border-right: solid 10px #c0392B;
+            border-bottom: solid 10px #c0392B;
+            background: #e74c3c;
+
+            line-height: 80px;
+            text-align: center;
+            font-size: 60px;
+            cursor: pointer;
+            position: absolute;
+            top: 590px;
+            left: 10px;
+
+            &:active {
+                border-width: 5px;
+                top: 595px;
+                left: 15px;
+            }
+        }
+
+        #btn_del {
+            width: 195px;
+            height: 90px;
+            border-right: solid 10px #f39c12;
+            border-bottom: solid 10px #f39c12;
+            background: #f1c40f;
+
+            line-height: 80px;
+            text-align: center;
+            font-size: 60px;
+            cursor: pointer;
+            position: absolute;
+            top: 590px;
+            left: 220px;
+
+            &:active {
+                border-width: 5px;
+                top: 595px;
+                left: 225px;
+            }
+        }
+    }
+
+    .code{
+        width: 100%;
+        height: 2vw;
+        line-height: 2vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 1vw;
+        color: white;
+        text-align: center;
+
+        a{
+            &:link{
+                color: #27ae60;   
+            }
+
+            &:visited{
+                color: #1c8a49; 
+            }
+
+        }
+    }
+}

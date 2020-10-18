@@ -3,12 +3,12 @@ body {
     height: 100vh;
     margin: 0;
     background: #353535;
-    /*font-family: 'Wallpoet', cursive;*/
     font-family: 'Inconsolata', monospace;
+    color: white;
 
-    #calculator {
+    #calculator{
         * {
-            transition: .1s linear;
+            // transition: .1s linear;
 
             -webkit-user-drag: none;
             -webkit-user-select: none;
@@ -25,309 +25,146 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 435px;
-        height: 700px;
+        height: 70vh;
+        width: calc(70vh * 0.6214);
+
         background: #3498BD;
         border-bottom: solid 10px #2980B9;
         border-right: solid 10px #2980B9;
 
-        #result {
-            width: 405px;
-            border-right: solid 10px #cccccc;
-            border-bottom: solid 10px #cccccc;
-            height: 140px;
-            background: #acacac;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            line-height: 70px;
-            font-size: 50px;
-            text-align: right;
-
-            #old {
-                width: 90%;
-                height: 70px;
-                box-sizing: border-box;
-                padding-right: 10px;
-                line-height: 30px;
-                text-align: left;
-                font-size: 25px;
-                padding-left: 3px;
-            }
-
-            #char {
-                width: 60px;
-                height: 60px;
-                box-sizing: border-box;
-                line-height: 60px;
-                font-size: 65px;
-                position: absolute;
-                top: 0;
-                right: 0;
-                text-align: center;
-            }
-
-            #current {
-                width: 100%;
-                height: 70px;
-                box-sizing: border-box;
-                padding-right: 10px;
-            }
-        }
+        display: grid;
+        grid-template-columns: [start] 1fr 1fr [middle] 1fr 1fr [end];
+        grid-template-rows: 3fr repeat(5, 2fr);
 
         .btn {
-            width: 90px;
-            height: 90px;
+            margin: 5px;
             background: #2ecc71;
 
             border-right: solid 10px #27ae60;
             border-bottom: solid 10px #27ae60;
-            line-height: 80px;
-            text-align: center;
-            font-size: 60px;
+
+
             cursor: pointer;
-            position: absolute;
+
+            box-sizing: border-box;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 2.5vw;
 
             &:active {
+                
                 border-width: 5px;
-                width: 90px;
-                height: 90px;
+
                 position: relative;
                 top: 5px;
                 left: 5px;
+
+                width: calc(100% - 15px);
+                height: calc(100% - 15px);
             }
         }
 
-        #btn_7 {
-            top: 170px;
-            left: 10px;
-
-            &:active {
-                top: 175px;
-                left: 15px;
-            }
-        }
-
-        #btn_8 {
-            top: 170px;
-            left: 115px;
-
-            &:active {
-                top: 175px;
-                left: 120px;
-            }
-        }
-
-        #btn_9 {
-            top: 170px;
-            left: 220px;
-
-            &:active {
-                top: 175px;
-                left: 225px;
-            }
-        }
-
-        #btn_divide {
-            top: 170px;
-            left: 325px;
+        #btn_divide, #btn_multiply, #btn_minus, #btn_plus, #btn_calculate {
             border-right: solid 10px #c0392B;
             border-bottom: solid 10px #c0392B;
             background: #e74c3c;
 
             &:active {
-                top: 175px;
-                left: 330px;
+                
                 border-width: 5px;
+
+                position: relative;
+                top: 5px;
+                left: 5px;
+
+                width: calc(100% - 15px);
+                height: calc(100% - 15px);
             }
         }
 
-        #btn_4 {
-            top: 275px;
-            left: 10px;
-
-            &:active {
-                top: 280px;
-                left: 15px;
-            }
-        }
-
-        #btn_5 {
-            top: 275px;
-            left: 115px;
-
-            &:active {
-                top: 280px;
-                left: 120px;
-            }
-        }
-
-        #btn_6 {
-            top: 275px;
-            left: 220px;
-
-            &:active {
-                top: 280px;
-                left: 225px;
-            }
-        }
-
-        #btn_multiply {
-            top: 275px;
-            left: 325px;
-            border-right: solid 10px #c0392B;
-            border-bottom: solid 10px #c0392B;
-            background: #e74c3c;
-
-            &:active {
-                top: 280px;
-                left: 330px;
-                border-width: 5px;
-            }
-        }
-
-        #btn_1 {
-            top: 380px;
-            left: 10px;
-
-            &:active {
-                top: 385px;
-                left: 15px;
-            }
-        }
-
-        #btn_2 {
-            top: 380px;
-            left: 115px;
-
-            &:active {
-                top: 385px;
-                left: 120px;
-            }
-        }
-
-        #btn_3 {
-            top: 380px;
-            left: 220px;
-
-            &:active {
-                top: 385px;
-                left: 225px;
-            }
-        }
-
-        #btn_minus {
-            top: 380px;
-            left: 325px;
-            border-right: solid 10px #c0392B;
-            border-bottom: solid 10px #c0392B;
-            background: #e74c3c;
-
-            &:active {
-                top: 385px;
-                left: 330px;
-                border-width: 5px;
-            }
-        }
-
-        #btn_0 {
-            top: 485px;
-            left: 10px;
-
-            &:active {
-                top: 490px;
-                left: 15px;
-            }
-        }
-
-        #btn_point {
-            top: 485px;
-            left: 115px;
-
-            &:active {
-                top: 490px;
-                left: 120px;
-            }
-        }
-
-        #btn_c {
-            top: 485px;
-            left: 220px;
+        #btn_c, #btn_del {
             border-right: solid 10px #f39c12;
             border-bottom: solid 10px #f39c12;
             background: #f1c40f;
 
             &:active {
-                top: 490px;
-                left: 225px;
                 border-width: 5px;
+
+                position: relative;
+                top: 5px;
+                left: 5px;
+
+                width: calc(100% - 15px);
+                height: calc(100% - 15px);
             }
         }
 
-        #btn_plus {
-            top: 485px;
-            left: 325px;
+        #result {
+            grid-column: start / end;
+            margin: 5px;
 
-            border-right: solid 10px #c0392B;
-            border-bottom: solid 10px #c0392B;
-            background: #e74c3c;
+            border-right: solid 10px #cccccc;
+            border-bottom: solid 10px #cccccc;
 
-            &:active {
-                top: 490px;
-                left: 330px;
-                border-width: 5px;
+            background: #acacac;
+
+            display: grid;
+            grid-template-columns: 7fr 1fr;
+            grid-template-rows: 2fr 4fr;
+
+            #old {
+                grid-column: 1 / 2;
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                padding: 10px;
+
+                font-size: 1vw;
+            }
+            
+            #char {
+                grid-column: 2 / 3;
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+
+                padding: 10px;
+
+                font-size: 1vw;
+            }
+
+            #current {
+                grid-column: 1 / 3;
+                grid-row: 2 / 3;
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                padding: 10px;
+
+                font-size: 2vw;
             }
         }
 
-        #btn_calculate {
-            width: 195px;
-            height: 90px;
-            border-right: solid 10px #c0392B;
-            border-bottom: solid 10px #c0392B;
-            background: #e74c3c;
-
-            line-height: 80px;
-            text-align: center;
-            font-size: 60px;
-            cursor: pointer;
-            position: absolute;
-            top: 590px;
-            left: 10px;
-
-            &:active {
-                border-width: 5px;
-                top: 595px;
-                left: 15px;
-            }
+        #btn_calculate{
+            grid-column: start / middle;
         }
 
-        #btn_del {
-            width: 195px;
-            height: 90px;
-            border-right: solid 10px #f39c12;
-            border-bottom: solid 10px #f39c12;
-            background: #f1c40f;
-
-            line-height: 80px;
-            text-align: center;
-            font-size: 60px;
-            cursor: pointer;
-            position: absolute;
-            top: 590px;
-            left: 220px;
-
-            &:active {
-                border-width: 5px;
-                top: 595px;
-                left: 225px;
-            }
+        #btn_del{
+            grid-column: middle / end;
         }
     }
 
+
     .code{
         width: 100%;
-        height: 2vw;
-        line-height: 2vw;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -344,6 +181,49 @@ body {
                 color: #1c8a49; 
             }
 
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    
+        #calculator{
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: unset;
+            height: 97vh;
+            width: 100vw;
+    
+            .btn {
+                font-size: 10vw;
+            }
+    
+            #result {
+                #old {
+                    font-size: 4vw;
+                }
+                
+                #char {
+                    font-size: 4vw;
+                }
+    
+                #current {
+                    font-size: 8vw;
+                }
+            }
+        }
+    
+    
+        .code{
+            position: fixed;
+            font-size: 3vh;
         }
     }
 }

@@ -3,7 +3,8 @@ $('.btn').click(function () {
     let x = $(this).html();
 
     if(
-        ($('#current').html().length < 14 && ['+', '-', '*', '/', '&lt;=', 'C', '='].indexOf(x) == -1) ||
+        ($('#current').html().length < 14 &&
+        ['+', '-', '*', '/', '&lt;=', 'C', '='].indexOf(x) == -1) ||
         ['+', '-', '*', '/', '&lt;=', 'C', '='].indexOf(x) != -1
     )
     switch (x) {
